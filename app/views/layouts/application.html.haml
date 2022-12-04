@@ -19,4 +19,8 @@
           = link_to  'プロフィール'
           = link_to 'お気に入り'
           = link_to 'ログアウト'
+    - if flash.present?
+      .flash
+        - flash.each do |key, value|
+          %div{:class => key}= value
     = yield
