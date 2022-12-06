@@ -5,18 +5,20 @@
   </div>
 
   <% @boards.each do |board| %>
-    <div class="board">
-      <div class="board_content">
-        <div class="board_title">
-          <%= board.title %>
-        </div>
-        <div class="board_sentence">
-          <%= board.content.truncate(24, separator: /\s/) %>
-        </div>
-        <div class="board_detail">
-          <%= image_tag 'default-avatar.png' %>
+    <%= link_to board_path(board) do %>
+      <div class="board">
+        <div class="board_content">
+          <div class="board_title">
+            <%= board.title %>
+          </div>
+          <div class="board_sentence">
+            <%= board.content.truncate(24, separator: /\s/) %>
+          </div>
+          <div class="board_detail">
+            <%= image_tag 'default-avatar.png' %>
+          </div>
         </div>
       </div>
-    </div>
+    <% end %>
   <% end %>
 </div>
