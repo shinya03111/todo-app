@@ -79,4 +79,15 @@ $avatar-size: 32px;
       width: 100%;
     }
   }
+
+  &_add {
+    background-color: white;
+    padding: 60px;
+    margin: 20px 15px;
+    margin-bottom: 50px;
+    cursor: pointer;
+    border: 1px dashed rgba(0, 0, 0, 0.2);
+    border-radius: 10px;
+    text-align: center;
+  }
 }
