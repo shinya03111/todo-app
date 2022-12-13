@@ -6,6 +6,14 @@
     <%= link_to board_path(board) do %>
       <div class="board">
         <div class="board_content">
+          <div class="board_detail_actions">
+            <div class="dropdown">
+              <%= image_tag 'actions.svg', class: 'dropbtn' %>
+              <div class="dropdown-content mini">
+                <a href="#">編集する</a>
+              </div>
+            </div>
+          </div>
           <div class="board_title">
             <%= board.title %>
           </div>
