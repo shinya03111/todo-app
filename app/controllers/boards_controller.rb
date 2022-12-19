@@ -1,10 +1,11 @@
 class BoardsController < ApplicationController
+  before_action :set_board, only: [:show, :edit, :update]
+
   def index
     @boards = Board.all
   end
 
   def show
-    @board = Board.find(params[:id])
   end
 
   def new
@@ -14,7 +15,7 @@ class BoardsController < ApplicationController
   def create
     @board = Board.new(board_params)
     if @board.save
-      redirect_to board_path(@board), notice: '保存できたよ'
+      redirect_to root_path, notice: '保存できたよ'
     else
       flash.now[:error] = '保存に失敗しました'
       render :new
@@ -22,11 +23,9 @@ class BoardsController < ApplicationController
   end
 
   def edit
-    @board = Board.find(params[:id])
   end
 
   def update
-    @board = Board.find(params[:id])
     if @board.update(board_params)
       redirect_to root_path, notice: '更新できました'
     else
@@ -44,5 +43,9 @@ class BoardsController < ApplicationController
   private
   def board_params
     params.require(:board).permit(:title, :content)
+  end
+
+  def set_board
+    @board = Board.find(params[:id])
   end
 end

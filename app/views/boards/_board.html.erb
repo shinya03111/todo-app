@@ -1,0 +1,24 @@
+<%= link_to board_path(board) do %>
+  <div class="board">
+    <div class="board_content">
+      <div class="board_detail_actions">
+        <div class="dropdown">
+          <%= image_tag 'actions.svg', class: 'dropbtn' %>
+          <div class="dropdown-content mini">
+            <%= link_to '編集する', edit_board_path(board) %>
+            <%= link_to '削除する', board_path(board), data: {method: 'delete',confirm: '本当に削除してもよろしいですか' } %>
+          </div>
+        </div>
+      </div>
+      <div class="board_title">
+        <%= board.title %>
+      </div>
+      <div class="board_sentence">
+        <%= board.content.truncate(24, separator: /\s/) %>
+      </div>
+      <div class="board_detail">
+        <%= image_tag 'Oval2.png' %>
+      </div>
+    </div>
+  </div>
+<% end %>
